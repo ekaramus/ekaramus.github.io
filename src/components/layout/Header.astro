@@ -1,0 +1,91 @@
+---
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact", href: "/contact" },
+];
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-50 border-b border-[var(--border-primary)] bg-[rgba(11,18,32,0.82)] backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+    <a
+      href="/"
+      class="group flex items-center gap-3"
+      aria-label="Go to homepage"
+    >
+      <span class="flex h-10 w-10 items-center justify-center rounded-[14px] border border-[var(--border-primary)] bg-[var(--bg-secondary)] font-semibold text-[var(--accent-warm)] transition group-hover:border-[var(--accent-warm)]">
+        ER
+      </span>
+
+      <span class="hidden leading-tight sm:block">
+        <span class="block text-sm font-semibold tracking-wide text-[var(--text-primary)]">
+          Ewa Ramus
+        </span>
+        <span class="font-mono-label block text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          code & craft
+        </span>
+      </span>
+    </a>
+
+    <nav
+      class="hidden items-center gap-6 md:flex"
+      aria-label="Main navigation"
+    >
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "font-mono-label text-[12px] uppercase tracking-[0.18em] transition",
+              isActive(item.href)
+                ? "text-[var(--accent-warm)]"
+                : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="/Ewa-Ramus-CV.pdf"
+      class="font-mono-label rounded-full border border-[var(--border-primary)] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)] transition hover:border-[var(--accent-warm)] hover:text-[var(--accent-warm)]"
+    >
+      CV
+    </a>
+  </div>
+
+  <nav
+    class="flex gap-4 overflow-x-auto border-t border-[var(--border-primary)] px-5 py-3 md:hidden"
+    aria-label="Mobile navigation"
+  >
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "font-mono-label shrink-0 text-[11px] uppercase tracking-[0.18em] transition",
+            isActive(item.href)
+              ? "text-[var(--accent-warm)]"
+              : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

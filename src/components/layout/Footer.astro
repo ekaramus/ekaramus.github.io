@@ -1,0 +1,35 @@
+---
+const links = [
+  { label: "GitHub", href: "https://github.com/ekaramus" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ewa-ramus/" },
+  { label: "Email", href: "mailto:ekaramus@gmail.com" },
+  { label: "CV / Resume", href: "/Ewa-Ramus-CV.pdf" },
+];
+---
+
+<footer class="border-t border-[var(--border-primary)] bg-[rgba(11,18,32,0.72)]">
+  <div class="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:grid-cols-[1fr_auto] md:items-center md:px-8">
+    <div>
+      <p class="max-w-2xl text-sm leading-7 text-[var(--text-secondary)]">
+        Frontend engineering, product thinking, accessibility, testing, and continuous iteration.
+      </p>
+
+      <p class="font-mono-label mt-3 text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+        Built with Astro, React, TypeScript, Tailwind CSS, and MDX.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3 md:justify-end">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="font-mono-label rounded-full border border-[var(--border-primary)] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)] transition hover:border-[var(--accent-warm)] hover:text-[var(--accent-warm)]"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

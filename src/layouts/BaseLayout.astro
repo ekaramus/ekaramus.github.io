@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ewa Ramus — Frontend Engineer",
+  description = "React and TypeScript frontend engineer building thoughtful interfaces, product case studies, and user-focused projects.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <Header />
+
+      <main>
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>

@@ -1,17 +1,21 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <p class="font-mono-label mb-5 text-[12px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
+      Product Engineering · UI Systems · Craft
+    </p>
+
+    <h1 class="max-w-4xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+      I build thoughtful interfaces and quietly obsess over how they work.
+    </h1>
+
+    <p class="mt-7 max-w-3xl text-lg leading-[1.8] text-[var(--text-secondary)]">
+      I’m Ewa — a React + TypeScript engineer with Microsoft experience across Skype and Teams.
+      I enjoy building products where frontend architecture, UX clarity, accessibility, performance,
+      and product thinking support each other.
+    </p>
+  </section>
+</BaseLayout>
