@@ -31,13 +31,14 @@ Completed so far:
 - added About page
 - added Experience page
 - added Contact page
+- configured GitHub Pages deployment
 
 Next milestone:
 
-- configure GitHub Pages deployment
 - publish the first version online
-- replace placeholder email and project repository links
-- add CV file to public folder
+- review mobile layout and accessibility basics
+- add CV file to public assets
+- replace generic project links with final repository/demo links when ready
 
 ## Local development
 
@@ -70,24 +71,72 @@ npm run preview
 ```txt
 src/
   components/
-    PortfolioHome.tsx
+    layout/
+      Header.astro
+      Footer.astro
+    projects/
+      ProjectCard.astro
+    ui/
+      Badge.astro
+      ButtonLink.astro
+      Card.astro
+      SectionHeading.astro
+  data/
+    projects.ts
   layouts/
     BaseLayout.astro
   pages/
     index.astro
+    about.astro
+    contact.astro
+    experience.astro
+    projects.astro
+    projects/
+      voicepin.astro
+      slow-productivity.astro
   styles/
     global.css
 
 public/
   Ewa-Ramus-CV.pdf
+
+.github/
+  workflows/
+    deploy.yml
 ```
+
+## Featured projects
+
+- VoicePin — short voice messages with automatic transcription
+- Slow Productivity — gentle daily productivity tracking
 
 ## Deployment
 
-The site will be deployed to GitHub Pages using GitHub Actions.
+The site is deployed to GitHub Pages using GitHub Actions.
+
+Deployment workflow:
+
+```txt
+.github/workflows/deploy.yml
+```
 
 Target URL:
 
 ```txt
 https://ekaramus.github.io
 ```
+
+After pushing to `main`, GitHub Actions builds the Astro project and publishes the generated site to GitHub Pages.
+
+## Purpose
+
+This site showcases selected product-focused frontend projects, with emphasis on:
+
+- React + TypeScript
+- UX decisions
+- testing
+- accessibility
+- quality
+- security and user trust
+- technical communication
+- continuous iteration
