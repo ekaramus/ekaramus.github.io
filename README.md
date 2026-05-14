@@ -27,6 +27,7 @@ Completed so far:
 - added homepage sections
 - added projects overview page
 - added VoicePin case study page
+- added Slow Productivity case study page
 
 Next milestone:
 

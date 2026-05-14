@@ -1,0 +1,505 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ButtonLink from "../../components/ui/ButtonLink.astro";
+import Card from "../../components/ui/Card.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+
+const metadata = [
+  {
+    label: "Status",
+    value: "In progress",
+  },
+  {
+    label: "Role",
+    value: "Product idea, UX, frontend architecture, Supabase integration, testing",
+  },
+  {
+    label: "Stack",
+    value: "Next.js, React, TypeScript, Supabase, Tailwind CSS, Vitest",
+  },
+];
+
+const morningFlow = [
+  "choose energy level",
+  "optionally define a daily goal",
+  "save morning check-in",
+];
+
+const eveningFlow = [
+  "reflect on the day",
+  "mark whether the goal was completed",
+  "complete the daily entry",
+];
+
+const statuses = ["empty", "planned", "in_progress", "missed", "completed"];
+
+const productDecisions = [
+  {
+    title: "Morning energy is required",
+    text: "Energy gives every day a minimum useful data point, even when the user does not have a clear goal yet.",
+  },
+  {
+    title: "Daily goal is optional",
+    text: "The app should not block users who want to check in before they have a precise plan.",
+  },
+  {
+    title: "Goal completion is boolean",
+    text: "A simple true/false value keeps reflection lightweight and avoids overcomplicating the MVP with percentages or productivity scores.",
+  },
+  {
+    title: "Status is computed",
+    text: "The app derives status from user actions and dates, reducing manual inconsistency and making the UI easier to reason about.",
+  },
+];
+
+const architecture = [
+  {
+    title: "Frontend",
+    items: [
+      "Next.js App Router",
+      "React components organized around daily entry flows",
+      "TypeScript domain types for entries, energy levels, filters, and status",
+      "Tailwind CSS for minimal interface styling",
+    ],
+  },
+  {
+    title: "Backend and data",
+    items: [
+      "Supabase auth",
+      "Supabase table for daily entries",
+      "one entry per user per date",
+      "Row Level Security for user-owned data",
+    ],
+  },
+  {
+    title: "Testing",
+    items: [
+      "unit tests for getEntryStatus",
+      "component tests for morning form",
+      "hook tests for useTodayEntry",
+      "behavior tests around partial entries",
+    ],
+  },
+];
+
+const engineeringProblems = [
+  {
+    title: "Partial entries",
+    text: "A user can save morning energy without a goal, so the UI must not treat the day as empty or incomplete in the wrong way.",
+  },
+  {
+    title: "Date-based status",
+    text: "Past, current, and future dates behave differently. This makes status logic more interesting than a simple field stored in the database.",
+  },
+  {
+    title: "Supabase auth and RLS",
+    text: "Each user should only access their own entries. Data modeling and policies are part of the product’s trust layer.",
+  },
+  {
+    title: "Server/client boundaries",
+    text: "The app uses modern Next.js patterns where server and client state need to stay predictable, especially around authenticated data.",
+  },
+  {
+    title: "Testing domain behavior",
+    text: "The most important logic is tested separately from UI rendering, making it easier to cover edge cases and prevent regressions.",
+  },
+];
+
+const visualPrinciples = [
+  "soft cards",
+  "large touch-friendly controls",
+  "minimal color",
+  "clear states",
+  "gentle copy",
+  "no gamification pressure",
+];
+
+const qualityNotes = [
+  "clear form labels",
+  "visible validation states",
+  "understandable empty states",
+  "predictable saved state",
+  "mobile-friendly controls",
+  "tests for partial and edge-case behavior",
+];
+
+const trustNotes = [
+  "user-owned data",
+  "Supabase Row Level Security",
+  "no unnecessary data exposure",
+  "predictable auth behavior",
+  "careful handling of personal reflection data",
+];
+
+const currentStatus = [
+  "morning entry flow implemented",
+  "Supabase connection in progress",
+  "status logic covered with tests",
+  "widget and form behavior being refined",
+  "evening reflection planned next",
+];
+
+const nextSteps = [
+  "complete evening reflection flow",
+  "add weekly overview",
+  "improve empty and missed states",
+  "add export-friendly data view",
+  "polish mobile layout",
+  "improve onboarding copy",
+];
+---
+
+<BaseLayout
+  title="Slow Productivity — Project Case Study"
+  description="A calm productivity tracker for energy, goals, and realistic daily reflection."
+>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
+      <div>
+        <Badge tone="warm">Project case study</Badge>
+
+        <h1 class="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+          Slow Productivity
+        </h1>
+
+        <p class="mt-7 max-w-3xl text-xl leading-[1.8] text-[var(--text-secondary)]">
+          A calm daily tracker for energy, goals, and realistic reflection.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <ButtonLink href="/projects" variant="secondary">
+            Back to projects
+          </ButtonLink>
+
+          <ButtonLink href="https://github.com/ekaramus" external>
+            GitHub
+          </ButtonLink>
+        </div>
+      </div>
+
+      <Card>
+        <p class="font-mono-label text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          Project metadata
+        </p>
+
+        <dl class="mt-6 space-y-5">
+          {
+            metadata.map((item) => (
+              <div class="border-b border-[var(--border-primary)] pb-5 last:border-b-0 last:pb-0">
+                <dt class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
+                  {item.label}
+                </dt>
+                <dd class="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
+                  {item.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Product idea
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          Slow Productivity is a daily tracker that helps users notice patterns in their energy,
+          goals, and reflection habits without turning productivity into pressure.
+        </p>
+      </Card>
+
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Why I built it
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          I wanted to build a productivity app around realistic behavior. People do not always define
+          a perfect goal, finish everything, or reflect every evening. The app models partial progress
+          instead of treating every incomplete day as failure.
+        </p>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          The goal is to create a product that feels calm and supportive, not judgmental.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Core user flow"
+      title="A daily loop that accepts imperfect behavior."
+      text="The app separates morning check-in from evening reflection so users can still record useful information even when the day is not perfectly planned."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Morning
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            morningFlow.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-warm)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Evening
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            eveningFlow.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+
+    <Card class="mt-5">
+      <p class="text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+        The app allows a morning entry without a goal, because users may know their energy level before
+        they know their exact plan.
+      </p>
+    </Card>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Domain model"
+      title="Status is derived from behavior, not guessed manually."
+      text="Entry status is derived from the date and available fields instead of being manually guessed."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Possible statuses
+        </h3>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          {
+            statuses.map((status) => (
+              <Badge tone={status === "completed" ? "success" : "default"}>
+                {status}
+              </Badge>
+            ))
+          }
+        </div>
+      </Card>
+
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Key modeling decision
+        </h3>
+
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          A day can be “morning completed” even if no goal text exists. Goal text and morning check-in
+          are separate concepts.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Product decisions"
+      title="The product should support the real day, not an idealized one."
+      text="The MVP keeps reflection lightweight while still modeling the most important behavior clearly."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        productDecisions.map((decision) => (
+          <Card interactive>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {decision.title}
+            </h3>
+
+            <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+              {decision.text}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Technical architecture"
+      title="Simple product, careful structure."
+      text="The implementation separates user flows, data ownership, domain status logic, and behavior-focused tests."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {
+        architecture.map((group) => (
+          <Card>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {group.title}
+            </h3>
+
+            <ul class="mt-6 space-y-3">
+              {
+                group.items.map((item) => (
+                  <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Engineering problems"
+      title="The subtle logic matters more than the number of screens."
+      text="Partial entries, computed status, and user-owned data create useful constraints for the architecture."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        engineeringProblems.map((problem) => (
+          <Card interactive>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {problem.title}
+            </h3>
+
+            <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+              {problem.text}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Visual design"
+      title="Calm, minimal, and supportive instead of pressure-driven."
+      text="The interface is intentionally calm and slightly iPhone-like. The goal is to reduce pressure and make daily reflection feel approachable."
+    />
+
+    <Card>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          visualPrinciples.map((item) => (
+            <div class="rounded-[14px] border border-[var(--border-primary)] bg-[rgba(255,255,255,0.025)] p-4">
+              <p class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+                {item}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </Card>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Accessibility, quality, and security"
+      title="Personal reflection data should feel private, predictable, and safe."
+      text="The app’s quality layer includes form clarity, understandable states, user-owned data, and predictable authentication behavior."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Quality considerations
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            qualityNotes.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-success)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Security and trust considerations
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            trustNotes.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Current status
+        </h2>
+
+        <ul class="mt-6 space-y-3">
+          {
+            currentStatus.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-success)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Next steps
+        </h2>
+
+        <ul class="mt-6 space-y-3">
+          {
+            nextSteps.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-warm)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>
