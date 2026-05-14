@@ -4,6 +4,8 @@ import Badge from "../components/ui/Badge.astro";
 import ButtonLink from "../components/ui/ButtonLink.astro";
 import Card from "../components/ui/Card.astro";
 import SectionHeading from "../components/ui/SectionHeading.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
+import { projects } from "../data/projects";
 ---
 
 <BaseLayout>
@@ -19,7 +21,8 @@ import SectionHeading from "../components/ui/SectionHeading.astro";
         <p class="mt-7 max-w-3xl text-lg leading-[1.8] text-[var(--text-secondary)]">
           I’m Ewa — a React + TypeScript engineer with Microsoft experience across Skype and Teams.
           I enjoy building products where frontend architecture, UX clarity, accessibility, performance,
-          and product thinking support each other.
+          and product thinking support each other. I care deeply about iteration, quality,
+          maintainability, and the small details users feel even when they don’t notice them directly.
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -80,7 +83,36 @@ import SectionHeading from "../components/ui/SectionHeading.astro";
             <Badge tone="warm">in progress</Badge>
           </div>
         </div>
+
+        <p class="mt-6 text-sm leading-7 text-[var(--text-muted)]">
+          I’m using VoicePin to explore voice UX, short-form communication, audio permissions,
+          async states, API boundaries, and the tiny details that make recording feel clear instead of stressful.
+        </p>
       </Card>
+    </div>
+  </section>
+
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      <SectionHeading
+        eyebrow="Selected work"
+        title="Things I’m building"
+        text="Projects built as learning artifacts — places to experiment, iterate, document decisions, and improve product quality over time."
+      />
+
+      <div class="mb-10">
+        <ButtonLink href="/projects" variant="secondary">
+          View all projects
+        </ButtonLink>
+      </div>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      {
+        projects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
     </div>
   </section>
 
@@ -88,10 +120,9 @@ import SectionHeading from "../components/ui/SectionHeading.astro";
     <SectionHeading
       eyebrow="Engineering signal"
       title="The portfolio should reflect curiosity, iteration, and engineering care — not only finished screenshots."
-      text="This first homepage slice verifies the visual system before we add the full project cards and case-study links."
     />
 
-    <div class="grid gap-5 md:grid-cols-3">
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
       <Card interactive>
         <h3 class="text-xl font-semibold text-[var(--text-primary)]">
           Product-minded frontend
@@ -121,6 +152,49 @@ import SectionHeading from "../components/ui/SectionHeading.astro";
           and interfaces that help users understand what is happening.
         </p>
       </Card>
+
+      <Card interactive>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Continuous iteration
+        </h3>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I enjoy improving products in passes: first make the flow work, then make it understandable,
+          then make it resilient, then make it feel good.
+        </p>
+      </Card>
     </div>
+  </section>
+
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <Card>
+      <div class="grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+        <div>
+          <Badge tone="warm">About</Badge>
+
+          <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--text-primary)] md:text-4xl">
+            Microsoft-scale experience, indie-product ownership.
+          </h2>
+        </div>
+
+        <div>
+          <p class="text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+            At Microsoft, I worked on frontend experiences across Skype and Teams. My side projects
+            are where I practice end-to-end product ownership: idea, UX, architecture, testing,
+            deployment, and documentation.
+          </p>
+
+          <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+            I care about interfaces that are understandable, accessible, secure, and thoughtfully made —
+            the kind of products where engineering quality and user trust support each other.
+          </p>
+
+          <div class="mt-7">
+            <ButtonLink href="/about" variant="secondary">
+              Read more about how I work
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </Card>
   </section>
 </BaseLayout>
