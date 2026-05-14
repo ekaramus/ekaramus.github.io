@@ -1,0 +1,229 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import Card from "../components/ui/Card.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+
+const careAreas = [
+  "clear and maintainable frontend architecture",
+  "thoughtful user flows",
+  "accessible interfaces",
+  "pragmatic testing",
+  "security and user trust",
+  "honest technical communication",
+  "async-friendly documentation",
+  "product decisions that respect real user behavior",
+];
+
+const workingSteps = [
+  {
+    title: "Define the user problem",
+    text: "Start by understanding what the product is trying to solve and what the user needs to understand, complete, or trust.",
+  },
+  {
+    title: "Scope the MVP",
+    text: "Prefer small, complete flows over large unfinished ideas. Good constraints make the product easier to test and improve.",
+  },
+  {
+    title: "Build the simplest useful version",
+    text: "Create a working path first, then improve structure, edge cases, states, accessibility, and visual quality in passes.",
+  },
+  {
+    title: "Test the risky behavior",
+    text: "Use tests to protect product behavior, domain logic, async states, and flows that would be painful to regress.",
+  },
+  {
+    title: "Document trade-offs",
+    text: "Write down decisions so the project can be understood later — by teammates, reviewers, future me, or anyone reading the case study.",
+  },
+  {
+    title: "Improve from feedback",
+    text: "Treat each version as a step toward clearer UX, more resilient code, and a product that feels better to use.",
+  },
+];
+
+const craftNotes = [
+  {
+    title: "Woodworking",
+    text: "Structure, patience, and respect for material constraints.",
+  },
+  {
+    title: "Ceramics",
+    text: "Iteration, texture, small imperfections, and tactile details.",
+  },
+  {
+    title: "Crochet",
+    text: "Patterns, repetition, debugging, and building something coherent one loop at a time.",
+  },
+];
+---
+
+<BaseLayout
+  title="About — Ewa Ramus"
+  description="About Ewa Ramus, a React and TypeScript frontend engineer focused on useful interfaces, product thinking, quality, and craft."
+>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
+      <div>
+        <Badge tone="warm">About</Badge>
+
+        <h1 class="mt-6 max-w-4xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+          I like building useful things carefully.
+        </h1>
+
+        <p class="mt-7 max-w-3xl text-xl leading-[1.8] text-[var(--text-secondary)]">
+          I’m Ewa, a React + TypeScript engineer with 5 years of experience at Microsoft,
+          working across Skype and Teams. I enjoy building user-facing products where frontend
+          engineering, UX, accessibility, quality, and product thinking meet.
+        </p>
+      </div>
+
+      <Card>
+        <p class="font-mono-label text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          Looking for a formal summary?
+        </p>
+
+        <h2 class="mt-4 text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          CV / Resume
+        </h2>
+
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          My CV is available as a concise overview of my experience, skills, and selected impact.
+        </p>
+
+        <div class="mt-7">
+          <ButtonLink href="/Ewa-Ramus-CV.pdf" variant="primary">
+            Download CV / Resume
+          </ButtonLink>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Professional story
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          I originally chose biomedical engineering because I wanted to bring useful technology closer
+          to people. That motivation stayed with me when I moved into software engineering: I care
+          about interfaces that are understandable, accessible, and genuinely helpful.
+        </p>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          At Microsoft, I worked in large-scale product environments. In my own projects, I practice
+          smaller end-to-end ownership: shaping the idea, designing flows, writing the code, testing
+          behavior, documenting trade-offs, and iterating toward something better.
+        </p>
+      </Card>
+
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Code and craft
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          Outside of software, I like making things with my hands — woodworking, ceramics, crochet.
+          I think that craft mindset influences how I approach interfaces: structure, texture,
+          usefulness, and small details matter.
+        </p>
+
+        <div class="mt-7 grid gap-3">
+          {
+            craftNotes.map((note) => (
+              <div class="rounded-[14px] border border-[var(--border-primary)] bg-[rgba(255,255,255,0.025)] p-4">
+                <p class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
+                  {note.title}
+                </p>
+                <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+                  {note.text}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="What I care about"
+      title="Frontend quality is product quality."
+      text="The details that make software understandable, safe, accessible, and maintainable are not separate from the product experience — they shape it."
+    />
+
+    <Card>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          careAreas.map((item) => (
+            <div class="rounded-[14px] border border-[var(--border-primary)] bg-[rgba(255,255,255,0.025)] p-4">
+              <p class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+                {item}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </Card>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="How I work"
+      title="Small, clear iterations make better products."
+      text="I like working in a rhythm where product thinking, implementation, testing, documentation, and feedback support each other."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        workingSteps.map((step) => (
+          <Card interactive>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {step.title}
+            </h3>
+
+            <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+              {step.text}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <Card>
+      <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div>
+          <Badge tone="blue">Next</Badge>
+
+          <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--text-primary)] md:text-4xl">
+            See the projects where I practice this end-to-end.
+          </h2>
+        </div>
+
+        <div>
+          <p class="text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+            VoicePin and Slow Productivity are small, focused products where I practice product
+            scoping, frontend architecture, state modeling, testing, accessibility, and documentation.
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <ButtonLink href="/projects" variant="primary">
+              Explore projects
+            </ButtonLink>
+
+            <ButtonLink href="/experience" variant="secondary">
+              View experience
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </Card>
+  </section>
+</BaseLayout>
