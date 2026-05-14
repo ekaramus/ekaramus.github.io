@@ -1,0 +1,156 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import Card from "../components/ui/Card.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+
+const contactLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/ekaramus",
+    description: "Code, portfolio projects, and experiments.",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ewa-ramus/",
+    description: "Professional background, experience, and updates.",
+    external: true,
+  },
+  {
+    label: "Email",
+    href: "mailto:ekaramus@gmail.com",
+    description: "Replace this with your preferred public contact email.",
+    external: false,
+  },
+  {
+    label: "CV / Resume",
+    href: "/Ewa-Ramus-CV.pdf",
+    description: "A concise overview of experience, skills, and selected impact.",
+    external: false,
+  },
+];
+
+const interests = [
+  "product-focused frontend engineering",
+  "React + TypeScript",
+  "accessibility",
+  "quality",
+  "thoughtful iteration",
+  "remote-friendly collaboration",
+  "clear UX",
+  "user trust",
+];
+---
+
+<BaseLayout
+  title="Contact — Ewa Ramus"
+  description="Contact links for Ewa Ramus, a React and TypeScript frontend engineer focused on product quality, accessibility, and thoughtful interfaces."
+>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
+      <div>
+        <Badge tone="warm">Contact</Badge>
+
+        <h1 class="mt-6 max-w-4xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+          Want to talk about frontend, product engineering, or thoughtful interfaces?
+        </h1>
+
+        <p class="mt-7 max-w-3xl text-xl leading-[1.8] text-[var(--text-secondary)]">
+          You can find my work, projects, and professional background through the links below.
+        </p>
+      </div>
+
+      <Card>
+        <p class="font-mono-label text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          Short note
+        </p>
+
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          Based in Poland. Interested in product-focused frontend engineering, React + TypeScript,
+          accessibility, quality, and teams that value thoughtful iteration.
+        </p>
+
+        <div class="mt-7 flex flex-wrap gap-2">
+          {
+            interests.map((item) => (
+              <Badge tone="default">
+                {item}
+              </Badge>
+            ))
+          }
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Links"
+      title="A few useful places to start."
+      text="The portfolio is meant to show projects and product thinking first. The formal CV is available, but intentionally secondary."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        contactLinks.map((link) => (
+          <Card interactive>
+            <div class="flex h-full flex-col justify-between gap-8">
+              <div>
+                <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+                  {link.label}
+                </h2>
+
+                <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+                  {link.description}
+                </p>
+              </div>
+
+              <div>
+                <ButtonLink
+                  href={link.href}
+                  external={link.external}
+                  variant={link.label === "CV / Resume" ? "secondary" : "primary"}
+                >
+                  Open {link.label}
+                </ButtonLink>
+              </div>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <Card>
+      <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div>
+          <Badge tone="blue">Portfolio route</Badge>
+
+          <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--text-primary)] md:text-4xl">
+            Prefer to explore the work first?
+          </h2>
+        </div>
+
+        <div>
+          <p class="text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+            The project case studies show how I approach product scope, UX decisions,
+            architecture, testing, accessibility, and trust.
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <ButtonLink href="/projects" variant="primary">
+              Explore projects
+            </ButtonLink>
+
+            <ButtonLink href="/about" variant="secondary">
+              Read about me
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </Card>
+  </section>
+</BaseLayout>

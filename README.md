@@ -30,12 +30,14 @@ Completed so far:
 - added Slow Productivity case study page
 - added About page
 - added Experience page
+- added Contact page
 
 Next milestone:
 
-- add Contact pages
 - configure GitHub Pages deployment
 - publish the first version online
+- replace placeholder email and project repository links
+- add CV file to public folder
 
 ## Local development
 
