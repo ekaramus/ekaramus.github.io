@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import Card from "../components/ui/Card.astro";
+import ProjectCard from "../components/projects/ProjectCard.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import { projects } from "../data/projects";
+---
+
+<BaseLayout
+  title="Projects — Ewa Ramus"
+  description="Selected frontend projects focused on product thinking, React, TypeScript, UX, testing, accessibility, and iteration."
+>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="max-w-4xl">
+      <Badge tone="warm">Projects</Badge>
+
+      <h1 class="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+        Small products, real decisions, visible iteration.
+      </h1>
+
+      <p class="mt-7 max-w-3xl text-lg leading-[1.8] text-[var(--text-secondary)]">
+        This is a collection of product-focused frontend projects I use to practice end-to-end ownership:
+        shaping the idea, designing flows, modeling state, testing behavior, documenting decisions,
+        and improving the experience over time.
+      </p>
+
+      <p class="mt-5 max-w-3xl text-base leading-[1.8] text-[var(--text-muted)] md:text-lg">
+        The projects are intentionally scoped. I prefer small products with clear trade-offs over large unfinished ideas.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      {
+        projects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="How to read these projects"
+      title="They are learning artifacts, not only screenshots."
+      text="Each project is meant to show product decisions, frontend architecture, edge cases, testing, accessibility, and the way the product improves over time."
+    />
+
+    <div class="grid gap-5 md:grid-cols-3">
+      <Card>
+        <h2 class="text-xl font-semibold text-[var(--text-primary)]">
+          Product decisions
+        </h2>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I describe what is in scope, what is intentionally left out, and how user behavior shapes the product.
+        </p>
+      </Card>
+
+      <Card>
+        <h2 class="text-xl font-semibold text-[var(--text-primary)]">
+          Engineering trade-offs
+        </h2>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I document state modeling, API boundaries, testing strategy, maintainability, and implementation constraints.
+        </p>
+      </Card>
+
+      <Card>
+        <h2 class="text-xl font-semibold text-[var(--text-primary)]">
+          Quality and trust
+        </h2>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I include accessibility, security, clear destructive actions, privacy considerations, and known limitations.
+        </p>
+      </Card>
+    </div>
+
+    <div class="mt-10">
+      <ButtonLink href="/" variant="secondary">
+        Back to homepage
+      </ButtonLink>
+    </div>
+  </section>
+</BaseLayout>
