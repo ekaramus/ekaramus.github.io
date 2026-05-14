@@ -1,0 +1,24 @@
+---
+interface Props {
+  tone?: "default" | "warm" | "blue" | "success";
+}
+
+const { tone = "default" } = Astro.props;
+
+const toneClasses = {
+  default:
+    "border-[var(--border-primary)] bg-[rgba(255,255,255,0.03)] text-[var(--text-secondary)]",
+  warm:
+    "border-[rgba(217,184,143,0.35)] bg-[rgba(217,184,143,0.08)] text-[var(--accent-warm)]",
+  blue:
+    "border-[rgba(91,164,255,0.35)] bg-[rgba(91,164,255,0.08)] text-[var(--accent-blue)]",
+  success:
+    "border-[rgba(124,199,165,0.35)] bg-[rgba(124,199,165,0.08)] text-[var(--accent-success)]",
+};
+---
+
+<span
+  class={`font-mono-label inline-flex items-center rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.18em] ${toneClasses[tone]}`}
+>
+  <slot />
+</span>

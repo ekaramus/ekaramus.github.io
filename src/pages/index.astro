@@ -1,21 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import Card from "../components/ui/Card.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
 ---
 
 <BaseLayout>
   <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
-    <p class="font-mono-label mb-5 text-[12px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
-      Product Engineering · UI Systems · Craft
-    </p>
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <Badge tone="warm">Product Engineering · UI Systems · Craft</Badge>
 
-    <h1 class="max-w-4xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
-      I build thoughtful interfaces and quietly obsess over how they work.
-    </h1>
+        <h1 class="mt-6 max-w-4xl text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+          I build thoughtful interfaces and quietly obsess over how they work.
+        </h1>
 
-    <p class="mt-7 max-w-3xl text-lg leading-[1.8] text-[var(--text-secondary)]">
-      I’m Ewa — a React + TypeScript engineer with Microsoft experience across Skype and Teams.
-      I enjoy building products where frontend architecture, UX clarity, accessibility, performance,
-      and product thinking support each other.
-    </p>
+        <p class="mt-7 max-w-3xl text-lg leading-[1.8] text-[var(--text-secondary)]">
+          I’m Ewa — a React + TypeScript engineer with Microsoft experience across Skype and Teams.
+          I enjoy building products where frontend architecture, UX clarity, accessibility, performance,
+          and product thinking support each other.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/projects" variant="primary">
+            Explore projects
+          </ButtonLink>
+
+          <ButtonLink href="https://github.com/ekaramus" external>
+            GitHub
+          </ButtonLink>
+        </div>
+
+        <p class="font-mono-label mt-6 text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          React · TypeScript · UI/UX · Testing · Accessibility · Security-minded engineering
+        </p>
+      </div>
+
+      <Card>
+        <p class="font-mono-label text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          Current build
+        </p>
+
+        <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          VoicePin
+        </h2>
+
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          Short voice snapshots, automatic transcription, and a retro recording flow focused on
+          communication that feels lightweight, human, and intentional.
+        </p>
+
+        <div class="mt-6 space-y-3">
+          <div class="flex items-center justify-between gap-4 border-b border-[var(--border-primary)] pb-3">
+            <span class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              voice_recording_flow
+            </span>
+            <Badge tone="success">stable</Badge>
+          </div>
+
+          <div class="flex items-center justify-between gap-4 border-b border-[var(--border-primary)] pb-3">
+            <span class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              speech_to_text_pipeline
+            </span>
+            <Badge tone="success">connected</Badge>
+          </div>
+
+          <div class="flex items-center justify-between gap-4 border-b border-[var(--border-primary)] pb-3">
+            <span class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              draft_and_send_logic
+            </span>
+            <Badge tone="blue">tested</Badge>
+          </div>
+
+          <div class="flex items-center justify-between gap-4">
+            <span class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              mobile_polish_pass
+            </span>
+            <Badge tone="warm">in progress</Badge>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </section>
+
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <SectionHeading
+      eyebrow="Engineering signal"
+      title="The portfolio should reflect curiosity, iteration, and engineering care — not only finished screenshots."
+      text="This first homepage slice verifies the visual system before we add the full project cards and case-study links."
+    />
+
+    <div class="grid gap-5 md:grid-cols-3">
+      <Card interactive>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Product-minded frontend
+        </h3>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I like turning vague ideas into scoped MVPs with clear user flows, honest trade-offs,
+          and enough structure to keep improving after the first version ships.
+        </p>
+      </Card>
+
+      <Card interactive>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Quality through behavior
+        </h3>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I use tests to describe important product behavior, edge cases, and regression-prone logic —
+          not only to check that components render.
+        </p>
+      </Card>
+
+      <Card interactive>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          User trust and care
+        </h3>
+        <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+          I care about accessibility, security, readable states, clear destructive actions,
+          and interfaces that help users understand what is happening.
+        </p>
+      </Card>
+    </div>
   </section>
 </BaseLayout>

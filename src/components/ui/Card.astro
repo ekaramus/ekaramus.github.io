@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+  interactive?: boolean;
+}
+
+const {
+  class: className = "",
+  interactive = false,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "rounded-[24px] border border-[var(--border-primary)] bg-[rgba(17,24,39,0.78)] p-6 shadow-[var(--shadow-soft)]",
+    "transition duration-300",
+    interactive &&
+      "hover:-translate-y-1 hover:border-[rgba(217,184,143,0.45)] hover:bg-[rgba(26,34,53,0.88)]",
+    className,
+  ]}
+>
+  <slot />
+</div>
