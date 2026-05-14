@@ -13,6 +13,16 @@ The goal of this portfolio is to present my work as a frontend/product-minded en
 - MDX for future project case studies
 - GitHub Pages deployment
 
+## Requirements
+
+Required Node.js version:
+
+```txt
+22.12.0 or higher
+```
+
+The project includes an `.nvmrc` file so the expected local Node version is documented.
+
 ## Current status
 
 Portfolio implementation in progress.
@@ -32,10 +42,11 @@ Completed so far:
 - added Experience page
 - added Contact page
 - configured GitHub Pages deployment
+- configured deployment to use a supported Node.js version
+- published the first version online
 
 Next milestone:
 
-- publish the first version online
 - review mobile layout and accessibility basics
 - add CV file to public assets
 - replace generic project links with final repository/demo links when ready
@@ -126,7 +137,9 @@ Target URL:
 https://ekaramus.github.io
 ```
 
-After pushing to `main`, GitHub Actions builds the Astro project and publishes the generated site to GitHub Pages.
+The workflow runs on pushes to the `master` branch and can also be triggered manually from the GitHub Actions tab.
+
+After pushing to `master`, GitHub Actions builds the Astro project and publishes the generated site to GitHub Pages.
 
 ## Purpose
 
