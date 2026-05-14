@@ -29,10 +29,11 @@ Completed so far:
 - added VoicePin case study page
 - added Slow Productivity case study page
 - added About page
+- added Experience page
 
 Next milestone:
 
-- add About, Experience, and Contact pages
+- add Contact pages
 - configure GitHub Pages deployment
 - publish the first version online
 
