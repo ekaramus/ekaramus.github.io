@@ -15,14 +15,23 @@ The goal of this portfolio is to present my work as a frontend/product-minded en
 
 ## Current status
 
-Initial portfolio setup in progress.
+Portfolio implementation in progress.
 
-Planned first milestone:
+Completed so far:
 
-- create the Astro project structure
-- add the homepage layout
-- add the first React portfolio component
-- configure Tailwind CSS
+- initialized Astro project structure
+- added React integration
+- added Tailwind CSS and global visual tokens
+- added shared layout, header, and footer
+- added reusable UI components
+- added homepage sections
+- added projects overview page
+- added VoicePin case study page
+
+Next milestone:
+
+- add Slow Productivity case study page
+- add About, Experience, and Contact pages
 - configure GitHub Pages deployment
 - publish the first version online
 

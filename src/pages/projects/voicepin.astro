@@ -1,0 +1,475 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+import ButtonLink from "../../components/ui/ButtonLink.astro";
+import Card from "../../components/ui/Card.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+
+const metadata = [
+  {
+    label: "Status",
+    value: "MVP nearly ready",
+  },
+  {
+    label: "Role",
+    value: "Product idea, UX, frontend, backend integration, testing, documentation",
+  },
+  {
+    label: "Stack",
+    value: "Next.js, React, TypeScript, Supabase, ElevenLabs API, Tailwind CSS, Vitest",
+  },
+];
+
+const mvpScope = [
+  "record a short voice message",
+  "save or discard a draft",
+  "choose a destination",
+  "send the message",
+  "generate a text transcript",
+  "display the message in a conversation",
+];
+
+const outOfScope = [
+  "group chats",
+  "long audio files",
+  "complex contact discovery",
+  "advanced moderation",
+  "native mobile app",
+  "complex notification system",
+];
+
+const uxDecisions = [
+  {
+    title: "Short messages only",
+    text: "The app is designed around short voice snapshots, not long recordings. This keeps the product focused and reduces complexity around storage, playback, and user attention.",
+  },
+  {
+    title: "Save vs send",
+    text: "If no destination is selected, the action is “save”. If a conversation is selected, the action becomes “send”. This keeps the flow flexible while avoiding accidental sending.",
+  },
+  {
+    title: "Clear destructive actions",
+    text: "Canceling a recording should clearly communicate that the current audio will be discarded. Audio is personal and sometimes sensitive, so destructive actions need to feel predictable.",
+  },
+  {
+    title: "Retro but usable",
+    text: "The visual style can be playful, but the interaction still needs to be readable, accessible, and easy to understand.",
+  },
+];
+
+const architecture = [
+  {
+    title: "Frontend",
+    items: [
+      "Next.js App Router",
+      "React components organized by feature",
+      "TypeScript domain types",
+      "Tailwind CSS styling",
+      "mobile-first layout",
+    ],
+  },
+  {
+    title: "Data and backend",
+    items: [
+      "Supabase for auth and persistence",
+      "repository layer for conversations and messages",
+      "API route for audio URL handling",
+      "speech-to-text integration",
+    ],
+  },
+  {
+    title: "Testing",
+    items: [
+      "Vitest",
+      "Testing Library",
+      "unit tests for domain behavior",
+      "component tests for recording and conversation flows",
+      "repository tests for data behavior",
+    ],
+  },
+];
+
+const engineeringProblems = [
+  {
+    title: "Recording state machine",
+    text: "The recording flow has several possible states: idle, recording, saving, sending, error, and completed. Modeling these states clearly helps prevent confusing UI behavior.",
+  },
+  {
+    title: "Draft persistence",
+    text: "A recorded message can exist before the user chooses where to send it. This means the app needs a clear draft model and predictable clearing behavior after sending, canceling, or selecting a destination.",
+  },
+  {
+    title: "Destination selection",
+    text: "The app supports sending a recording to a selected conversation or saving it first. This required careful separation between recording, draft, and conversation logic.",
+  },
+  {
+    title: "Transcription lifecycle",
+    text: "The user experience needs to handle the delay between audio upload, transcription request, loading state, success, and failure. A good transcript flow should feel transparent instead of magical or unreliable.",
+  },
+];
+
+const testFocus = [
+  "recording button states",
+  "draft clearing",
+  "destination picker behavior",
+  "conversation loading",
+  "message repository behavior",
+  "audio recording hook behavior",
+  "transcript-related states",
+];
+
+const qualityNotes = [
+  "visible focus states",
+  "clear button labels",
+  "understandable disabled states",
+  "predictable cancel/delete behavior",
+  "readable loading states",
+  "mobile-first touch targets",
+];
+
+const trustNotes = [
+  "clear recording permission flow",
+  "avoid surprising background behavior",
+  "keep API boundaries explicit",
+  "communicate upload/transcription states",
+  "consider privacy and retention rules before expanding beyond MVP",
+];
+
+const currentStatus = [
+  "core recording UI implemented",
+  "speech-to-text integration connected",
+  "draft and send logic being refined",
+  "tests added for important behavior",
+  "production deployment planned",
+  "demo screenshots and video planned",
+];
+
+const nextSteps = [
+  "deploy MVP",
+  "add demo video",
+  "polish mobile layout",
+  "improve error states",
+  "add transcript fallback states",
+  "document API trade-offs",
+  "add privacy notes for audio handling",
+];
+---
+
+<BaseLayout
+  title="VoicePin — Project Case Study"
+  description="A short voice-message communicator with automatic speech-to-text, retro recorder aesthetics, and product-focused frontend architecture."
+>
+  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
+      <div>
+        <Badge tone="warm">Project case study</Badge>
+
+        <h1 class="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+          VoicePin
+        </h1>
+
+        <p class="mt-7 max-w-3xl text-xl leading-[1.8] text-[var(--text-secondary)]">
+          Short voice messages with automatic transcription and a retro recorder vibe.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <ButtonLink href="/projects" variant="secondary">
+            Back to projects
+          </ButtonLink>
+
+          <ButtonLink href="https://github.com/ekaramus" external>
+            GitHub
+          </ButtonLink>
+        </div>
+      </div>
+
+      <Card>
+        <p class="font-mono-label text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
+          Project metadata
+        </p>
+
+        <dl class="mt-6 space-y-5">
+          {
+            metadata.map((item) => (
+              <div class="border-b border-[var(--border-primary)] pb-5 last:border-b-0 last:pb-0">
+                <dt class="font-mono-label text-[11px] uppercase tracking-[0.18em] text-[var(--accent-warm)]">
+                  {item.label}
+                </dt>
+                <dd class="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
+                  {item.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Product idea
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          VoicePin is a small messaging app for short voice snapshots. Instead of long conversations
+          or endless text threads, the app focuses on quick voice notes with automatic speech-to-text,
+          making messages easier to scan, revisit, and understand.
+        </p>
+      </Card>
+
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Why I built it
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          I wanted to explore voice-first communication from a product and frontend perspective.
+          Recording audio seems simple from the outside, but the actual user experience includes
+          permissions, recording states, draft handling, sending, cancellation, transcription,
+          loading states, and failure recovery.
+        </p>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)] md:text-lg">
+          I also wanted the app to feel different from generic chat interfaces. The retro recorder
+          aesthetic gives the product a tactile, memorable feeling while still keeping the core flow
+          simple and focused.
+        </p>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="MVP scope"
+      title="A narrow flow, intentionally chosen."
+      text="For the first version, I focused on the smallest complete loop that still tests the product idea."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          In scope
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            mvpScope.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-success)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Out of scope for MVP
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            outOfScope.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--text-muted)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="UX decisions"
+      title="Small interaction choices carry a lot of trust."
+      text="Voice interactions can feel personal, so the product needs to be playful without becoming unclear."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        uxDecisions.map((decision) => (
+          <Card interactive>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {decision.title}
+            </h3>
+            <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+              {decision.text}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Technical architecture"
+      title="A small product with clear boundaries."
+      text="The implementation is organized around frontend behavior, persistence, audio handling, and testable product flows."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {
+        architecture.map((group) => (
+          <Card>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {group.title}
+            </h3>
+
+            <ul class="mt-6 space-y-3">
+              {
+                group.items.map((item) => (
+                  <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Engineering problems"
+      title="The interesting work is in the edge cases."
+      text="Recording, drafts, sending, and transcription all create async states that need to stay understandable."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        engineeringProblems.map((problem) => (
+          <Card interactive>
+            <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+              {problem.title}
+            </h3>
+
+            <p class="mt-4 text-base leading-[1.8] text-[var(--text-secondary)]">
+              {problem.text}
+            </p>
+          </Card>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Testing strategy
+        </h2>
+
+        <p class="mt-5 text-base leading-[1.8] text-[var(--text-secondary)]">
+          The tests focus on behavior that would be risky to regress. I use tests not only to check
+          rendering, but to describe expected product behavior.
+        </p>
+      </Card>
+
+      <Card>
+        <ul class="grid gap-3 sm:grid-cols-2">
+          {
+            testFocus.map((item) => (
+              <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-warm)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <SectionHeading
+      eyebrow="Quality, accessibility, and trust"
+      title="Voice content deserves careful product behavior."
+      text="The interface should be careful with permissions, destructive actions, error states, and user control."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Quality considerations
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            qualityNotes.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-success)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h3 class="text-xl font-semibold text-[var(--text-primary)]">
+          Security and trust considerations
+        </h3>
+
+        <ul class="mt-6 space-y-3">
+          {
+            trustNotes.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+    <div class="grid gap-5 lg:grid-cols-2">
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Current status
+        </h2>
+
+        <ul class="mt-6 space-y-3">
+          {
+            currentStatus.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-success)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card>
+        <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
+          Next steps
+        </h2>
+
+        <ul class="mt-6 space-y-3">
+          {
+            nextSteps.map((item) => (
+              <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-warm)]"></span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+  </section>
+</BaseLayout>
