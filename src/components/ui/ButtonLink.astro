@@ -25,7 +25,6 @@ const variantClasses = {
   href={href}
   target={external ? "_blank" : undefined}
   rel={external ? "noreferrer" : undefined}
-  class={`font-mono-label inline-flex items-center justify-center rounded-full border px-5 py-3 text-[12px] uppercase tracking-[0.18em] transition ${variantClasses[variant]}`}
->
+  class={`font-mono-label inline-flex min-h-11 items-center justify-center rounded-full border px-5 py-3 text-[12px] uppercase tracking-[0.16em] transition ${variantClasses[variant]}`}>
   <slot />
 </a>
