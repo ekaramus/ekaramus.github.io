@@ -55,7 +55,7 @@ const { project } = Astro.props;
         Demonstrates
       </p>
 
-      <ul class="space-y-3">
+      <ul class="space-y-4">
         {
           project.demonstrates.slice(0, 4).map((item) => (
             <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
@@ -71,7 +71,7 @@ const { project } = Astro.props;
       {
         project.links.map((link) =>
           link.disabled ? (
-            <span class="font-mono-label inline-flex cursor-not-allowed items-center justify-center rounded-full border border-[var(--border-primary)] px-5 py-3 text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)] opacity-60">
+            <span class="font-mono-label inline-flex cursor-not-allowed items-center justify-center rounded-full border border-[var(--border-primary)] px-6 py-3 text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)] opacity-60">
               {link.label}
             </span>
           ) : (

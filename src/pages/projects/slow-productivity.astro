@@ -154,12 +154,12 @@ const nextSteps = [
   title="Slow Productivity — Project Case Study"
   description="A calm productivity tracker for energy, goals, and realistic daily reflection."
 >
-  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+  <section class="section-spacing mx-auto max-w-7xl px-6 md:px-8">
     <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
       <div>
         <Badge tone="warm">Project case study</Badge>
 
-        <h1 class="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+        <h1 class="mt-6 text-text-[clamp(2.75rem,14vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.055em][clamp(2.75rem,14vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.055em]">
           Slow Productivity
         </h1>
 
@@ -201,7 +201,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <div class="grid gap-5 lg:grid-cols-2">
       <Card>
         <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
@@ -232,7 +232,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Core user flow"
       title="A daily loop that accepts imperfect behavior."
@@ -245,7 +245,7 @@ const nextSteps = [
           Morning
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             morningFlow.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -262,7 +262,7 @@ const nextSteps = [
           Evening
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             eveningFlow.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -283,7 +283,7 @@ const nextSteps = [
     </Card>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Domain model"
       title="Status is derived from behavior, not guessed manually."
@@ -320,7 +320,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Product decisions"
       title="The product should support the real day, not an idealized one."
@@ -344,7 +344,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Technical architecture"
       title="Simple product, careful structure."
@@ -359,7 +359,7 @@ const nextSteps = [
               {group.title}
             </h3>
 
-            <ul class="mt-6 space-y-3">
+            <ul class="mt-6 space-y-4">
               {
                 group.items.map((item) => (
                   <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
@@ -375,7 +375,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Engineering problems"
       title="The subtle logic matters more than the number of screens."
@@ -399,7 +399,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Visual design"
       title="Calm, minimal, and supportive instead of pressure-driven."
@@ -421,7 +421,7 @@ const nextSteps = [
     </Card>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Accessibility, quality, and security"
       title="Personal reflection data should feel private, predictable, and safe."
@@ -434,7 +434,7 @@ const nextSteps = [
           Quality considerations
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             qualityNotes.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -451,7 +451,7 @@ const nextSteps = [
           Security and trust considerations
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             trustNotes.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -465,14 +465,14 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <div class="grid gap-5 lg:grid-cols-2">
       <Card>
         <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
           Current status
         </h2>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             currentStatus.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -489,7 +489,7 @@ const nextSteps = [
           Next steps
         </h2>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             nextSteps.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">

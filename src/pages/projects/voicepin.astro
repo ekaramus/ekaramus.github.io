@@ -159,12 +159,12 @@ const nextSteps = [
   title="VoicePin — Project Case Study"
   description="A short voice-message communicator with automatic speech-to-text, retro recorder aesthetics, and product-focused frontend architecture."
 >
-  <section class="section-spacing mx-auto max-w-7xl px-5 md:px-8">
+  <section class="section-spacing mx-auto max-w-7xl px-6 md:px-8">
     <div class="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
       <div>
         <Badge tone="warm">Project case study</Badge>
 
-        <h1 class="mt-6 text-5xl font-bold leading-[0.95] tracking-[-0.06em] text-[var(--text-primary)] md:text-7xl">
+        <h1 class="mt-6 text-text-[clamp(2.75rem,14vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.055em][clamp(2.75rem,14vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.055em]">
           VoicePin
         </h1>
 
@@ -206,7 +206,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <div class="grid gap-5 lg:grid-cols-2">
       <Card>
         <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
@@ -241,7 +241,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="MVP scope"
       title="A narrow flow, intentionally chosen."
@@ -254,7 +254,7 @@ const nextSteps = [
           In scope
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             mvpScope.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -271,7 +271,7 @@ const nextSteps = [
           Out of scope for MVP
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             outOfScope.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -285,7 +285,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="UX decisions"
       title="Small interaction choices carry a lot of trust."
@@ -308,7 +308,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Technical architecture"
       title="A small product with clear boundaries."
@@ -323,7 +323,7 @@ const nextSteps = [
               {group.title}
             </h3>
 
-            <ul class="mt-6 space-y-3">
+            <ul class="mt-6 space-y-4">
               {
                 group.items.map((item) => (
                   <li class="flex gap-3 text-sm leading-6 text-[var(--text-secondary)]">
@@ -339,7 +339,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Engineering problems"
       title="The interesting work is in the edge cases."
@@ -363,7 +363,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <div class="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
       <Card>
         <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
@@ -391,7 +391,7 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <SectionHeading
       eyebrow="Quality, accessibility, and trust"
       title="Voice content deserves careful product behavior."
@@ -404,7 +404,7 @@ const nextSteps = [
           Quality considerations
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             qualityNotes.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -421,7 +421,7 @@ const nextSteps = [
           Security and trust considerations
         </h3>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             trustNotes.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -435,14 +435,14 @@ const nextSteps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32">
+  <section class="mx-auto max-w-7xl px-6 pb-24 md:px-8 md:pb-32">
     <div class="grid gap-5 lg:grid-cols-2">
       <Card>
         <h2 class="text-2xl font-semibold tracking-[-0.04em] text-[var(--text-primary)]">
           Current status
         </h2>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             currentStatus.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
@@ -459,7 +459,7 @@ const nextSteps = [
           Next steps
         </h2>
 
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-4">
           {
             nextSteps.map((item) => (
               <li class="flex gap-3 text-base leading-7 text-[var(--text-secondary)]">
