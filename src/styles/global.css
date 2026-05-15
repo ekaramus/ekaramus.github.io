@@ -112,3 +112,15 @@ a {
     padding-bottom: 128px;
   }
 }
+
+.hero-spacing {
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .hero-spacing {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+}
