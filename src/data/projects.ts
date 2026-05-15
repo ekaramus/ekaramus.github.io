@@ -53,7 +53,7 @@ export const projects: Project[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/ekaramus",
+        href: "https://github.com/ekaramus/voicepin",
         external: true,
       },
       {
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/ekaramus",
+        href: "https://github.com/ekaramus/vibecheck",
         external: true,
       },
     ],
