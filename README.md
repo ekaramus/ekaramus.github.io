@@ -44,11 +44,11 @@ Completed so far:
 - configured GitHub Pages deployment
 - configured deployment to use a supported Node.js version
 - published the first version online
+- added CV file to public assets
 
 Next milestone:
 
 - review mobile layout and accessibility basics
-- add CV file to public assets
 - replace generic project links with final repository/demo links when ready
 
 ## Local development
