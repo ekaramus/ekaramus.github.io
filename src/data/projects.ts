@@ -25,7 +25,7 @@ export const projects: Project[] = [
     slug: "voicepin",
     type: "Voice-first communication prototype",
     description:
-      "A short voice-message communicator with automatic speech-to-text and a retro recorder vibe.",
+      "A mobile-first voice messaging MVP with ultra-short recordings, automatic transcription, Supabase-backed persistence, private audio access, and a retro recorder-style UI.",
     status: "MVP nearly ready",
     featured: true,
     tags: [
@@ -38,13 +38,11 @@ export const projects: Project[] = [
       "Vitest",
     ],
     demonstrates: [
-      "voice-first interaction design",
-      "React + TypeScript frontend architecture",
-      "API integration",
-      "async state handling",
-      "product scoping",
-      "testable UI behavior",
-      "mobile-first thinking",
+      "voice-first product UX",
+      "recording and transcription states",
+      "Supabase auth, storage, and realtime flows",
+      "security-minded audio handling",
+      "accessibility and error states"
     ],
     links: [
       {
@@ -57,7 +55,7 @@ export const projects: Project[] = [
         external: true,
       },
       {
-        label: "Demo coming soon",
+        label: "Demo video planned",
         href: "#",
         disabled: true,
       },
@@ -68,7 +66,7 @@ export const projects: Project[] = [
     slug: "slow-productivity",
     type: "Calm daily reflection product",
     description:
-      "A calm daily tracker for energy, goals, and realistic reflection — built around gentle, imperfect productivity.",
+      "A calm daily reflection product with morning check-ins, optional goals, evening reflection, Supabase-backed user data, and derived status logic for imperfect real-life behavior.",
     status: "In progress",
     tags: [
       "Product thinking",
@@ -80,13 +78,11 @@ export const projects: Project[] = [
       "Vitest",
     ],
     demonstrates: [
-      "domain modeling",
-      "partial entry handling",
-      "Supabase-backed user data",
-      "computed statuses",
-      "form UX",
-      "behavior-driven testing",
-      "calm product design",
+      "typed domain modeling",
+      "derived status logic",
+      "Supabase SSR and RLS-protected data",
+      "React Query entry flows",
+      "tested product behavior"
     ],
     links: [
       {
