@@ -62,9 +62,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Slow Productivity",
-    slug: "slow-productivity",
-    type: "Calm daily reflection product",
+    title: "VibeCheck",
+    slug: "vibecheck",
+    type: "Slow productivity tracker",
     description:
       "A calm daily reflection product with morning check-ins, optional goals, evening reflection, Supabase-backed user data, and derived status logic for imperfect real-life behavior.",
     status: "In progress",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Case study",
-        href: "/projects/slow-productivity",
+        href: "/projects/vibecheck",
       },
       {
         label: "GitHub",

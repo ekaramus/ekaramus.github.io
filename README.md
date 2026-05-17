@@ -37,7 +37,7 @@ Completed so far:
 - added homepage sections
 - added projects overview page
 - added VoicePin case study page
-- added Slow Productivity case study page
+- added VibeCheck case study page
 - added About page
 - added Experience page
 - added Contact page
@@ -119,7 +119,7 @@ public/
 ## Featured projects
 
 - VoicePin — short voice messages with automatic transcription
-- Slow Productivity — gentle daily productivity tracking
+- VibeCheck — Slow productivity tracker
 
 ## Deployment
 
